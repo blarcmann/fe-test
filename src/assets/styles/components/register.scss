@@ -1,0 +1,36 @@
+.form-component {
+   background-image: url('../../images/bg-register.svg');
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: auto;
+   min-height: 99vh;
+   .overlay {
+       background-color: rgba(0, 0, 0, 0.15);
+       position: absolute;
+       width: 100vw;
+       height: 100vh;
+   }
+   @media(max-width: 767px) {
+       background-size: contain;
+   }
+   &.login {
+       background-size: contain;
+   }
+   .auth-extra {
+       margin: 1rem auto;
+       font-size: 0.75rem;
+       text-align: center;
+       a {
+           color: #222;
+           text-decoration: underline;
+       }
+   }
+}
+
+.kard {
+    width: 80%;
+    margin: 1.5rem auto;
+    @media(min-width: 768px) {
+        width: 420px;
+    }
+}
