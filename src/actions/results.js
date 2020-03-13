@@ -1,4 +1,4 @@
-// import { FOLLOWING, UNFOLLOW } from '../actions/action-constants';
+// import {  } from '../constants';
 import axios from 'axios';
 import globals from '../globals';
 const url = `${globals.BASE_URL}/users`;
