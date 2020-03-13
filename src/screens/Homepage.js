@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { queryChanged } from '../actions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Suggestions from '../components/Suggestions';
 
 export class Homepage extends Component {
   state = {
@@ -18,27 +19,26 @@ export class Homepage extends Component {
   renderSuggestions = () => {
     const { q } = this.props;
     if (q.length > 0) {
-      return (
-        <div className="search-results">
-          <div className="results">
-            <ul>
-              <li>
-                <img src={require('../assets/images/search.png')} alt="search" />
-                <span>testing framework reactjs</span>
-              </li>
-              <li>
-                <img src={require('../assets/images/search.png')} alt="search" />
-                <span>testing framework reactjs</span>
-              </li>
-              <li>
-                <img src={require('../assets/images/search.png')} alt="search" />
-                <span>testing framework reactjs</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
+      return <Suggestions />;
     };
+  }
+
+  renderOthers = () => {
+    return (
+      <>
+        <div className="other-actions">
+          <button className="gray-button">Google Search</button>
+          <button className="gray-button">I'm Feeling Lucky</button>
+        </div>
+        <div className="offers">
+          <span>Google offered in:</span>
+          <a href="https://google.com">Hausa</a>
+          <a href="https://google.com">Igbo</a>
+          <a href="https://google.com">Èdè Yorùbá</a>
+          <a href="https://google.com">Nigerian Pidgin</a>
+        </div>
+      </>
+    )
   }
 
   render() {
@@ -67,17 +67,7 @@ export class Homepage extends Component {
             </div>
             {/* <div className="divider"></div> */}
             {this.renderSuggestions()}
-            <div className="other-actions">
-              <button className="gray-button">Google Search</button>
-              <button className="gray-button">I'm Feeling Lucky</button>
-            </div>
-            <div className="offers">
-              <span>Google offered in:</span>
-              <a href="https://google.com">Hausa</a>
-              <a href="https://google.com">Igbo</a>
-              <a href="https://google.com">Èdè Yorùbá</a>
-              <a href="https://google.com">Nigerian Pidgin</a>
-            </div>
+            {this.renderOthers()}
           </center>
         </div>
         <Footer />

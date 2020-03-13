@@ -1,14 +1,17 @@
-import { SEARCH_STRING } from '../constants';
+import { SEARCH_STRING, FETCH_SUGGESTIONS } from '../constants';
 
 const initialState = {
-    q: ''
+    q: '',
+    suggestions: [],
 }
 
 export default function search(state = initialState, action) {
-    console.log('actionnn', action.payload);
     switch (action.type) {
         case SEARCH_STRING:
             return { ...state, q: action.payload }
+        case FETCH_SUGGESTIONS:
+            const suggestions = action.payload;
+            return { ...state, suggestions }
         default:
             return state;
     }
