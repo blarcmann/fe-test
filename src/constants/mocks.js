@@ -6,6 +6,36 @@ const results = [
     type: 'article'
   },
   {
+    url: 'www.npmjs.com › package › @react-navigation › stack',
+    title: '@react-navigation/stack - npm',
+    description: 'Mar 3, 2020 - @react-navigation/stack. Stack navigator for React Navigation. Installation instructions and documentation can be found on the React...',
+    type: 'article'
+  },
+  {
+    url: 'www.npmjs.com › package › @react-navigation › native-stack',
+    title: '@react-navigation/native-stack - npm',
+    description: 'Feb 14, 2020 - This package has moved. Please install the latest version of react- native - screens and change your imports from @react-navigation / native - stack ...',
+    type: 'article'
+  },
+  {
+    url: 'reactnavigation.org › docs › getting-started',
+    title: 'Getting started | React Navigation',
+    description: 'npm install @react-navigation/native ... Note: When you use a navigator (such as stack navigator), you\'ll need to follow the installation instructions of that ...',
+    type: 'article'
+  },
+  {
+    url: 'reactnavigation.org › docs › stack-navigator',
+    title: 'createStackNavigator | React Navigation',
+    description: 'Mar 3, 2020 - @react-navigation/stack. Stack navigator for React Navigation. Installation instructions and documentation can be found on the React...',
+    type: 'article'
+  },
+  {
+    url: 'medium.com › reactnative-react-navigation-error-createstacknavigator...',
+    title: '[ReactNative][react-navigation]Error: createStackNavigator ...',
+    description: 'Jan 7, 2020 - For the StackNavigator you have to install react-navigation-stack using: npm i react-navigation-stack //or yarn add react-navigation-stack',
+    type: 'article'
+  },
+  {
     url: 'reactnavigation.org › docs › stack - navigator',
     title: 'React Native Tutorial #20 - Stack Navigator',
     channel: 'The Net Ninja',
