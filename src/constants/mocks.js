@@ -14,6 +14,10 @@ const results = [
   }
 ];
 
+const misc = {
+  responseMsg: 'About 531,000 results (0.55 seconds) '
+}
+
 const suggestions = [
   'React native navigations > Getting started for begginners',
   'Expo navigation documemtation react native',
@@ -22,4 +26,4 @@ const suggestions = [
   'To implement the stack navigator in React Native'
 ];
 
-export { results, suggestions }
+export { results, suggestions, misc }

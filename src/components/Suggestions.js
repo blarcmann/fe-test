@@ -23,9 +23,7 @@ export class Suggestions extends Component {
         {suggestions && suggestions.length > 0 ?
           <div className="search-results">
             <div className="results">
-              <ul>
-                {suggestions.map(s => this.renderSuggestions(s))}
-              </ul>
+              <ul>{suggestions.map(s => this.renderSuggestions(s))}</ul>
             </div>
           </div>
           : ''}
