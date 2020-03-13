@@ -10,26 +10,26 @@ export class Homepage extends Component {
         <Header />
         <div className="search-cover">
           <center>
-            <div className="center-logo">
+            <div className="main-logo">
               <img src={require('../assets/images/google.png')} alt="logo" />
             </div>
             <div className="search-bar">
               <div className="search-icon left">
-                <img src={require('../assets/images/search.png')} alt="logo" />
+                <img src={require('../assets/images/search.png')} className="left" alt="logo" />
               </div>
               <div className="search-input">
                 <input type="text" name="search" id="search" />
               </div>
-              <div className="search-icon right">
-                <img src={require('../assets/images/microphone.png')} alt="logo" />
+              <div className="search-icon">
+                <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
               </div>
             </div>
-            <div className="others">
+            <div className="other-actions">
               <button className="gray-button">Google Search</button>
               <button className="gray-button">I'm Feeling Lucky</button>
             </div>
             <div className="offers">
-              <span>Google offered in</span>
+              <span>Google offered in:</span>
               <a href="https://google.com">Hausa</a>
               <a href="https://google.com">Igbo</a>
               <a href="https://google.com">Èdè Yorùbá</a>

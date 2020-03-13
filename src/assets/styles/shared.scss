@@ -17,6 +17,12 @@ body {
   cursor: pointer;
 }
 
+input, button {
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
 .header-cover {
   width: 100%;
   display: flex;
@@ -50,4 +56,82 @@ body {
       }
     }
   }
+}
+.search-cover {
+  margin-top: 9%;
+  .main-logo {
+    img {
+      width: 244px;
+      height: auto;
+    }
+  }
+  .search-bar {
+    width: 100%;
+    margin: 1.25rem 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .search-input {
+      width: 40%;
+      input {
+        background: #FFFFFF;
+        border: 1px solid #e1e2e4;
+        height: 45px;
+        border-radius: 1.5rem;
+        width: 100%;
+        padding: 1rem 2.5rem;
+        transition: all 0.125s;
+        &:hover, &:focus {
+          box-shadow: 0 1px 6px 0 rgba(0,0,0,0.2);
+          border-color: #f1f1f1;
+        } 
+      }
+    }
+    .search-icon {
+      img {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        &.left {
+          left: 2rem;
+        }
+        &.right {
+          right: 2rem;
+        }
+      }
+    }
+  }
+  .other-actions {
+    margin-bottom: 1.5rem;
+    button {
+      color: #454545;
+      background-color: #f6f6f6;
+      border: none;
+      height: 38px;
+      font-size: 0.875rem;
+      padding: 0 1.125rem;
+      border-radius: 0.25rem;
+      margin-right: 1rem;
+      transition: all 0.125s ease-in-out;
+      &:hover {
+        box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        border: 0.5px solid #c6c6c6;
+        color: #222;
+      }
+    }
+  }
+  .offers {
+    font-size: 0.8125rem;
+    color: #333;
+    span, a {
+      margin-right: 0.35rem;
+    }
+    a {
+      color: rgb(31, 17, 184);
+      &:visited{
+        color: rgb(104, 6, 153);
+      }
+    }
+  }
+  
 }
