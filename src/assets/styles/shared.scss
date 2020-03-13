@@ -22,6 +22,7 @@ input, button {
     outline: none;
   }
 }
+
 .header-tabs {
   width: 100%;
   border-bottom: 1px solid #ebebeb;
@@ -39,28 +40,28 @@ input, button {
       justify-content: flex-start;
       .tab {
         margin-right: 0.5rem;
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem 0.35rem;
         transition: all 0.125s;
         &.active {
-          color: rgb(22, 112, 230);
           border-bottom: 2px solid rgb(22, 112, 230);
           span {color: rgb(22, 112, 230);}
         }
         img {
-          width: 12px;
-          height: 12px;
+          width: 10px;
+          height: 10px;
           margin-right: 0.25rem;
         }
       }
     }
   }
 }
+
 .header-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
   &.results {
-    padding: 1.5rem;
+    padding: 1rem;
     .search {
       display: flex;
       justify-content: flex-start;
@@ -240,6 +241,71 @@ input, button {
       color: rgb(31, 17, 184);
       &:visited{
         color: rgb(104, 6, 153);
+      }
+    }
+  }
+}
+
+.results-container {
+  margin: 1.5rem 0;
+  margin-left: 10rem;
+  width: 40vw;
+  .response-time {
+    margin: 1.25rem 0 0;
+    color: #73787c;
+    font-size: 0.8125rem;
+  }
+  .results {
+    .each-result {
+      position: relative;
+      margin: 1.5rem 0;
+      a {
+        .b-crumb {
+          position: absolute;
+          top: 0;
+          left: 0;
+          cite {
+            font-size: 0.8125rem;
+            color: #3C4043;
+            font-style: normal;
+          }
+          img {
+            width: 7px;
+            height: 8px;
+            margin-left: 0.25rem;
+          }
+        }
+        h3 {
+          color: rgb(24, 10, 177);
+          font-size: 1.25rem;
+          padding: 1.5rem 0 0.25rem;
+          font-weight: 400;
+          margin: 0;
+        }
+      }
+    }
+    .description {
+      color: #343434;
+      font-size: 0.935rem;
+    }
+  }
+  .related {
+    h2 {
+      margin: 1.5rem 0;
+      font-weight: 400;
+      color: #333;
+      font-size: 1.25rem;
+    }
+    .related-group {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      .rel {
+        display: block;
+        font-size: 0.935rem;
+        color: #1A0DAB;
+        font-weight: 600;
+        width: 45%;
       }
     }
   }

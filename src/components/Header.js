@@ -3,13 +3,35 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export class Header extends Component {
-  // renderTabs = (tab) => { }
+  state = {
+    tabs: ['All', 'Videos', 'Images', 'News', 'Maps', 'More'],
+    others: ['Settings', 'Tools'],
+    active: 'Videos'
+  }
+
+  renderTabs = (tab) => {
+    const { active } = this.state;
+    return (
+      <div
+        className={active === tab ? "tab pointer active" : "tab pointer"}
+        onClick={() => this.activateTab(tab)}
+      >
+        <img src={require('../assets/images/search.png')} alt="s" />
+        <span>{tab}</span>
+      </div>
+    )
+  }
+
+  activateTab = (tab) => {
+    this.setState({ active: tab })
+  }
 
   render() {
-    const { q } = this.props;
+    const { q, top } = this.props;
+    const { others, tabs } = this.state;
     return (
       <>
-        <div className="header-container results">
+        <div className={top ? "header-container results" : "header-container"}>
           <div className="search">
             <div className="logo">
               <img src={require('../assets/images/google.png')} alt="logo" />
@@ -21,7 +43,7 @@ export class Header extends Component {
               <div className="search-input">
                 <input type="text" name="search" id="search"
                   className={q && q.length ? "results" : ""}
-                  autoFocus={true}
+                  autoFocus={!top}
                   onChange={this.onInputChange} />
               </div>
               <div className="search-icon">
@@ -45,38 +67,10 @@ export class Header extends Component {
         <div className="header-tabs">
           <div className="menus">
             <div className="tabs">
-              <div className="tab pointer active">
-                <img src={require('../assets/images/search.png')} alt="s" />
-                <span>All</span>
-              </div>
-              <div className="tab">
-                <img src={require('../assets/images/search.png')} alt="s" />
-                <span>Videos</span>
-              </div>
-              <div className="tab">
-                <img src={require('../assets/images/search.png')} alt="s" />
-                <span>Images</span>
-              </div>
-              <div className="tab">
-                <img src={require('../assets/images/search.png')} alt="s" />
-                <span>News</span>
-              </div>
-              <div className="tab">
-                <img src={require('../assets/images/search.png')} alt="s" />
-                <span>Maps</span>
-              </div>
-              <div className="tab">
-                <img src={require('../assets/images/search.png')} alt="s" />
-                <span>More</span>
-              </div>
+              {tabs.map(t => this.renderTabs(t))}
             </div>
             <div className="others">
-              <div className="tab">
-                <span>Settings</span>
-              </div>
-              <div className="tab">
-                <span>Tools</span>
-              </div>
+              {others.map(t => this.renderTabs(t))}
             </div>
           </div>
         </div>

@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import Result from '../components/Result';
 import Footer from '../components/Footer';
-import { fetchResults, getResponseMsg } from '../actions';
+import { fetchResults, getResponseMsg, fetchRelated } from '../actions';
 
 export class Results extends Component {
 
   componentDidMount() {
-    const { fetchResults, getResponseMsg } = this.props;
-    fetchResults();
+    const { fetchResults, getResponseMsg, fetchRelated } = this.props;
     getResponseMsg();
+    fetchResults();
+    fetchRelated();
+  }
+
+  renderRelated = (title) => {
+    return (
+      <a href="https://google.com" key={title} className="rel" alt="title">{title}</a>
+    )
   }
 
   render() {
-    const { results, msg } = this.props;
+    const { results, msg, related } = this.props;
     return (
       <>
-        <Header showSearch="true" />
+        <Header top="true" />
         <div className="results-container">
           <div className="response-time">{msg.responseMsg}</div>
-
           <div className="results">
-            <div className="each-result">
-              <a href="https://google.com">
-                <h3>Corona virus, safety tips</h3>
-                <div className="breadcrumb">
-                  <cite>mothefucking.com.ng > take care > safe flape</cite>
-                  <span>v</span>
-                </div>
-              </a>
+            {results.map(res => <Result result={res} key={res.id} />)}
+          </div>
+          <div className="related">
+            <h2>Searches related to react-navigation-stack</h2>
+            <div className="related-group">
+              {related && related.length ?
+                related.map(rel => this.renderRelated(rel))
+                : ''}
             </div>
           </div>
         </div>
@@ -39,14 +46,14 @@ export class Results extends Component {
 }
 
 const mapStateToProps = ({ search }) => {
-  const { results, msg } = search;
-  return { results, msg }
+  const { results, msg, related } = search;
+  return { results, msg, related }
 }
 
 
 
 const mapDispatchToProps = {
-  fetchResults, getResponseMsg
+  fetchResults, getResponseMsg, fetchRelated
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results)

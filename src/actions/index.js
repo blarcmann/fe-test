@@ -1,5 +1,11 @@
-import { SEARCH_STRING, FETCH_SUGGESTIONS, FETCH_RESULTS, RESULT_RESPONSE_MSG } from '../constants';
-import { suggestions, results, misc } from '../constants/mocks';
+import {
+    SEARCH_STRING,
+    FETCH_SUGGESTIONS,
+    FETCH_RESULTS,
+    RESULT_RESPONSE_MSG,
+    RELATED_SEARCHES,
+} from '../constants';
+import { suggestions, results, misc, relatedSearches } from '../constants/mocks';
 
 export const queryChanged = (q) => {
     return {
@@ -26,5 +32,12 @@ export const fetchResults = () => {
     return {
         type: FETCH_RESULTS,
         payload: results
+    }
+}
+
+export const fetchRelated = () => {
+    return {
+        type: RELATED_SEARCHES,
+        payload: relatedSearches
     }
 }

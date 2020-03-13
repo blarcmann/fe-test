@@ -45,7 +45,7 @@ export class Homepage extends Component {
     const { q } = this.props;
     return (
       <>
-        <Header />
+        <Header top="false" />
         <div className="search-container">
           <center>
             <div className="main-logo">
