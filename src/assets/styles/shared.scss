@@ -57,6 +57,7 @@ input, button {
     }
   }
 }
+
 .search-container {
   margin-top: 9%;
   .main-logo {
@@ -79,12 +80,16 @@ input, button {
         height: 45px;
         border-radius: 1.5rem;
         width: 100%;
-        padding: 1rem 2.5rem;
-        transition: all 0.125s;
+        padding: 1rem 3rem;
+        transition: all 0.25s;
         &:hover, &:focus {
-          box-shadow: 0 1px 6px 0 rgba(0,0,0,0.2);
+          box-shadow: 0 4px 6px 0 rgba(0,0,0,0.2);
           border-color: #f1f1f1;
-        } 
+        }
+        &.results {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
       }
     }
     .search-icon {
@@ -101,6 +106,50 @@ input, button {
       }
     }
   }
+  .divider {
+    width: 35%;
+    margin: auto;
+    border-bottom: 1px solid #f4f4f4;
+  }
+  .search-results {
+    width: 40%;
+    position: relative;
+    bottom: 1.6rem;
+    transition: all 0.125s ease-in;
+    .results {
+      // position: absolute;
+      padding-top: 0.75rem;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 5px 6px 0 rgba(0,0,0,0.2);
+      border-radius: 0 0 1.25rem 1.25rem;
+      z-index: 9;
+      ul {
+        padding-left: 0;
+        list-style: none;
+        li {
+          width: 100%;
+          display: flex;
+          padding: 0.5rem 1rem;
+          align-items: center;
+          &:hover {
+            background-color: #f4f4f4;
+            cursor: default;
+          }
+          img {
+            width: 18px;
+            height: 18px;
+            margin-right: 1rem;
+          }
+          span {
+            font-weight: 600;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
   .other-actions {
     margin-bottom: 1.5rem;
     button {

@@ -1,10 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { queryChanged } from '../actions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export class Homepage extends Component {
+  state = {
+    suggestions: false
+  }
+
+  onInputChange = (e) => {
+    const q = e.target.value;
+    this.props.queryChanged(q);
+    this.renderSuggestions();
+  }
+
+  renderSuggestions = () => {
+    const { q } = this.props;
+    if (q.length > 0) {
+      return (
+        <div className="search-results">
+          <div className="results">
+            <ul>
+              <li>
+                <img src={require('../assets/images/search.png')} alt="search" />
+                <span>testing framework reactjs</span>
+              </li>
+              <li>
+                <img src={require('../assets/images/search.png')} alt="search" />
+                <span>testing framework reactjs</span>
+              </li>
+              <li>
+                <img src={require('../assets/images/search.png')} alt="search" />
+                <span>testing framework reactjs</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )
+    };
+  }
+
   render() {
+    const { q } = this.props;
     return (
       <>
         <Header />
@@ -18,12 +56,17 @@ export class Homepage extends Component {
                 <img src={require('../assets/images/search.png')} className="left" alt="logo" />
               </div>
               <div className="search-input">
-                <input type="text" name="search" id="search" />
+                <input type="text" name="search" id="search"
+                  className={q && q.length ? "results" : ""}
+                  autoFocus={true}
+                  onChange={this.onInputChange} />
               </div>
               <div className="search-icon">
                 <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
               </div>
             </div>
+            {/* <div className="divider"></div> */}
+            {this.renderSuggestions()}
             <div className="other-actions">
               <button className="gray-button">Google Search</button>
               <button className="gray-button">I'm Feeling Lucky</button>
@@ -44,11 +87,7 @@ export class Homepage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  q: state.search.q
 })
 
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage)
+export default connect(mapStateToProps, { queryChanged })(Homepage)
