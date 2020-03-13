@@ -8,7 +8,7 @@ export class Homepage extends Component {
     return (
       <>
         <Header />
-        <div className="search-cover">
+        <div className="search-container">
           <center>
             <div className="main-logo">
               <img src={require('../assets/images/google.png')} alt="logo" />

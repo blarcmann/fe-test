@@ -6,7 +6,7 @@ export class Header extends Component {
   render() {
     return (
       <>
-        <div className="header-cover">
+        <div className="header-container">
           <div className="menu-items">
             <div className="links">
               <Link to="/">Gmail</Link>

@@ -23,7 +23,7 @@ input, button {
   }
 }
 
-.header-cover {
+.header-container {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -57,7 +57,7 @@ input, button {
     }
   }
 }
-.search-cover {
+.search-container {
   margin-top: 9%;
   .main-logo {
     img {
@@ -133,5 +133,30 @@ input, button {
       }
     }
   }
-  
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  .footer {
+    font-size: 0.875rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #f2f2f2;
+    color: #555;
+    &.bottom {
+      border-top: 1px solid #e2e2e2;
+      display: flex;
+      justify-content: space-between;
+      .footer-menu {
+        a {
+          font-size: 0.8125rem;
+          color: #555;
+          margin-right: 0.75rem;
+        }
+      }
+    }
+  }
 }
