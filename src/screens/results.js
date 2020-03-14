@@ -7,6 +7,9 @@ import { fetchResults, getResponseMsg, fetchRelated } from '../actions';
 
 export class Results extends Component {
 
+  state = {
+    pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  }
   componentDidMount() {
     const { fetchResults, getResponseMsg, fetchRelated } = this.props;
     getResponseMsg();
@@ -22,6 +25,7 @@ export class Results extends Component {
 
   render() {
     const { results, msg, related } = this.props;
+    const { pages } = this.state;
     return (
       <>
         <Header top="true" altSearch={true} />
@@ -36,6 +40,24 @@ export class Results extends Component {
               {related && related.length ?
                 related.map(rel => this.renderRelated(rel))
                 : ''}
+            </div>
+          </div>
+          <div className="misc-container">
+            <div className="footer-logo">
+              <span className="blue">G</span>
+              <span className="red">o</span>
+              <span className="gold">o</span>
+              <span className="gold">o</span>
+              <span className="gold">o</span>
+              <span className="gold">o</span>
+              <span className="gold">o</span>
+              <span className="blue">g</span>
+              <span className="green">l</span>
+              <span className="red">e</span>
+            </div>
+            <div className="pagination">
+              {pages.map(p => <a href="https://google.com">{p}</a>)}
+              <a className="next" href="https://google.com">Next</a>
             </div>
           </div>
         </div>

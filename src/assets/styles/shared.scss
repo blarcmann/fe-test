@@ -303,11 +303,34 @@ input, button {
       flex-wrap: wrap;
       .rel {
         display: block;
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
         color: #1A0DAB;
         font-weight: 600;
         width: 48%;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+  .misc-container {
+    margin: 1.5rem 0 0;
+    .footer-logo, .pagination {
+      margin-left: 12rem;
+      a {
+        font-size: 0.75rem;
+        margin-right: 0.5rem;
+        color: rgb(38, 25, 182);
+        &.next {
+          margin-left: 1.5rem;
+        }
+      }
+      span {
+        font-size: 2.25rem;
+        font-weight: 500;
+        font-stretch: semi-condensed;
+        &.blue {color: #4c8bf4}
+        &.green {color: #33a853}
+        &.gold {color: #fbbc03}
+        &.red {color: #ea4335}
       }
     }
   }
