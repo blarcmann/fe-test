@@ -27,17 +27,37 @@ input, button {
   width: 100%;
   border-bottom: 1px solid #ebebeb;
   padding-left: 10rem;
+  @media(min-width: 1200px) {
+    padding-top: 4.75rem;
+  }
+  @media(max-width: 1199px) {
+    padding-left: 1rem;
+    box-shadow: 0px 7px 6px -5px #DFE1E5;
+    border-bottom: none;
+  }
   .menus {
     display: flex;
     justify-content: space-between;
     width: 38vw;
+    @media(max-width: 1199px) {
+      width: 95%;
+    }
+    @media(max-width: 600px) {
+      overflow-x: scroll;
+    }
     span {
       color: #333;
       font-size: 0.8125rem;
     }
+    .others {
+      @media(max-width: 600px) {
+        display: none;
+      }
+    }
     .tabs, .others {
       display: flex;
       justify-content: flex-start;
+
       .tab {
         margin-right: 0.5rem;
         padding: 0.25rem 0.35rem;
@@ -47,6 +67,9 @@ input, button {
           span {color: rgb(22, 112, 230);}
         }
         img {
+          @media(max-width: 1199px) {
+            display: none;
+          }
           width: 11px;
           height: 11px;
           margin-right: 0.25rem;
@@ -56,15 +79,30 @@ input, button {
   }
 }
 
+.sticky-header {
+  position: absolute;
+  width: 100%;
+  .header-container  {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,.28);
+  }
+}
+
 .header-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background-color: #FFFFFF;
+  z-index: 1;
   &.right {
     justify-content: flex-end;
   }
   &.results {
     padding: 1rem;
+    @media (min-width: 1200px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
     .search {
       display: flex;
       justify-content: flex-start;
@@ -112,6 +150,12 @@ input, button {
   }
 }
 
+.search-sm {
+  @media(min-width: 1200px) {
+    display: none;
+  }
+}
+
 .search-bar {
   width: 100%;
   margin: 1.25rem 0 1.5rem;
@@ -127,9 +171,18 @@ input, button {
         height: 38px;
       }
     }
+    @media(max-width: 1199px) {
+      display: none;
+    }
   }
   .search-input {
-    width: 40%;
+    width: 80%;
+    @media(min-width: 1200px) {
+      width: 40%;
+    }
+    @media(max-width: 767px) {
+      width: 95%;
+    }
     input {
       background: #FFFFFF;
       border: 1px solid #e1e2e4;
@@ -167,8 +220,11 @@ input, button {
   margin-top: 9%;
   .main-logo {
     img {
-      width: 244px;
+      width: 180px;
       height: auto;
+      @media(min-width: 1200px) {
+        width: 244px;
+      }
     }
   }
   .divider {
@@ -177,7 +233,13 @@ input, button {
     border-bottom: 1px solid #f4f4f4;
   }
   .search-results {
-    width: 40%;
+    width: 60%;
+    @media(min-width: 1200px) {
+      width: 40%;
+    }
+    @media(max-width: 767px) {
+      width: 90%;
+    }
     position: relative;
     bottom: 1.6rem;
     transition: all 0.125s ease-in;
@@ -208,6 +270,9 @@ input, button {
           span {
             font-weight: 600;
             color: #333;
+            @media(max-width: 900px) {
+              font-size: 0.875rem;
+            }
           }
         }
       }
@@ -251,6 +316,10 @@ input, button {
   margin: 1.5rem 0;
   margin-left: 10rem;
   width: 40vw;
+  @media(max-width: 1199px) {
+    width: 95%;
+    margin-left: 1rem;
+  }
   .response-time {
     margin: 1.25rem 0 0;
     color: #73787c;
@@ -260,11 +329,22 @@ input, button {
     .each-result {
       position: relative;
       margin: 1.5rem 0;
+      @media(max-width: 1199px) {
+        padding: 1rem 0.75rem 1rem;
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        border-radius: 0.25rem;
+        width: 95%;
+        margin-right: auto;
+      }
       a {
         .b-crumb {
           position: absolute;
           top: 0;
           left: 0;
+          @media(max-width: 1199px) {
+            left: 1rem;
+            top: 0.25rem;
+          }
           cite {
             font-size: 0.75rem;
             color: #3C4043;
@@ -306,8 +386,9 @@ input, button {
         font-size: 0.8125rem;
         color: #1A0DAB;
         font-weight: 600;
-        width: 48%;
+        width: 45%;
         margin-bottom: 0.25rem;
+        padding-right: 3%;
       }
     }
   }
@@ -315,6 +396,9 @@ input, button {
     margin: 1.5rem 0 0;
     .footer-logo, .pagination {
       margin-left: 12rem;
+      @media(max-width: 1199px) {
+        margin-left: 1rem;
+      }
       a {
         font-size: 0.75rem;
         margin-right: 0.5rem;
@@ -351,15 +435,30 @@ input, button {
     color: #555;
     &.bottom {
       border-top: 1px solid #e2e2e2;
-      display: flex;
-      justify-content: space-between;
+      @media(min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+      }
       .footer-menu {
+        @media(max-width: 767px) {
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          margin-bottom: 1rem;
+        }
         a {
           font-size: 0.8125rem;
           color: #555;
           margin-right: 0.75rem;
+          @media(max-width: 767px) {
+            display: block;
+            margin-top: 0.75rem;
+          }
         }
       }
     }
   }
 }
+
+
+// 0 1px 6px 0 rgba(32,33,36,.28)

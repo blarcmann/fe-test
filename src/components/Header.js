@@ -38,45 +38,63 @@ export class Header extends Component {
   }
 
   render() {
-    const { q, top, altSearch } = this.props;
+    const { q, top, altSearch, sticky } = this.props;
     const { others, tabs } = this.state;
     return (
       <>
-        <div className={
-          top ? "header-container right" : "header-container",
-          altSearch ? 'header-container results' : 'header-container right'
-        }>
-          {altSearch ?
-            <div className="search">
-              <div className="logo">
-                <img src={require('../assets/images/google.png')} alt="logo" />
+        <div className={sticky ? "sticky-header" : ''}>
+          <div className={
+            // eslint-disable-next-line
+            top ? "header-container right" : "header-container",
+            altSearch ? 'header-container results' : 'header-container right'
+          }>
+            {altSearch ?
+              <div className="search">
+                <div className="logo">
+                  <img src={require('../assets/images/google.png')} alt="logo" />
+                </div>
+                <div className="search-bar results">
+                  <div className="search-icon left">
+                    <img src={require('../assets/images/search.png')} className="left" alt="logo" />
+                  </div>
+                  <div className="search-input">
+                    <input type="text" name="search" id="search"
+                      className={q && q.length ? "results" : ""}
+                      autoFocus={!top}
+                      onChange={this.onInputChange} />
+                  </div>
+                  <div className="search-icon">
+                    <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
+                  </div>
+                </div>
               </div>
-              <div className="search-bar results">
-                <div className="search-icon left">
-                  <img src={require('../assets/images/search.png')} className="left" alt="logo" />
-                </div>
-                <div className="search-input">
-                  <input type="text" name="search" id="search"
-                    className={q && q.length ? "results" : ""}
-                    autoFocus={!top}
-                    onChange={this.onInputChange} />
-                </div>
-                <div className="search-icon">
-                  <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
-                </div>
+              : ''}
+            <div className="menu-items">
+              <div className="links">
+                <Link to="/">Gmail</Link>
+                <Link to="/">Images</Link>
+              </div>
+              <div className="icon pointer">
+                <img src={require('../assets/images/menu.png')} alt="menu" />
+              </div>
+              <div className="icon pointer">
+                <img src={require('../assets/images/user.png')} className="user" alt="user" />
               </div>
             </div>
-            : ''}
-          <div className="menu-items">
-            <div className="links">
-              <Link to="/">Gmail</Link>
-              <Link to="/">Images</Link>
+          </div>
+        </div>
+        <div className="search-sm">
+          <div className="search-bar">
+            <div className="search-icon left">
+              <img src={require('../assets/images/search.png')} className="left" alt="logo" />
             </div>
-            <div className="icon pointer">
-              <img src={require('../assets/images/menu.png')} alt="menu" />
+            <div className="search-input">
+              <input type="text" name="search" id="search-sm"
+                autoFocus={!top}
+                onChange={this.onInputChange} />
             </div>
-            <div className="icon pointer">
-              <img src={require('../assets/images/user.png')} className="user" alt="user" />
+            <div className="search-icon">
+              <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
             </div>
           </div>
         </div>

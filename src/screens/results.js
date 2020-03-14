@@ -8,8 +8,10 @@ import { fetchResults, getResponseMsg, fetchRelated } from '../actions';
 export class Results extends Component {
 
   state = {
-    pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    acSticky: false,
   }
+
   componentDidMount() {
     const { fetchResults, getResponseMsg, fetchRelated } = this.props;
     getResponseMsg();
@@ -23,12 +25,22 @@ export class Results extends Component {
     )
   }
 
+  handleScroll = () => {
+    if (window.pageYOffset > 50) {
+      this.setState({ acSticky: true });
+      console.log('scrolled');
+    } else {
+      this.setState({ acSticky: false })
+    }
+  }
+
   render() {
+    window.addEventListener("scroll", this.handleScroll);
     const { results, msg, related } = this.props;
-    const { pages } = this.state;
+    const { pages, acSticky } = this.state;
     return (
       <>
-        <Header top="true" altSearch={true} />
+        <Header top="true" altSearch={true} sticky={acSticky} />
         <div className="results-container">
           <div className="response-time">{msg.responseMsg}</div>
           <div className="results">
@@ -56,7 +68,7 @@ export class Results extends Component {
               <span className="red">e</span>
             </div>
             <div className="pagination">
-              {pages.map(p => <a href="https://google.com">{p}</a>)}
+              {pages.map(p => <a href="https://google.com" key={p}>{p}</a>)}
               <a className="next" href="https://google.com">Next</a>
             </div>
           </div>
