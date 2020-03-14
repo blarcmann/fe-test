@@ -45,7 +45,7 @@ export class Homepage extends Component {
     const { q } = this.props;
     return (
       <>
-        <Header top="false" />
+        <Header top={false} altSearch={false} />
         <div className="search-container">
           <center>
             <div className="main-logo">
@@ -56,7 +56,8 @@ export class Homepage extends Component {
                 <img src={require('../assets/images/search.png')} className="left" alt="logo" />
               </div>
               <div className="search-input">
-                <input type="text" name="search" id="search"
+                <input type="text" name="search"
+                  id="fullsearch"
                   className={q && q.length ? "results" : ""}
                   autoFocus={true}
                   onChange={this.onInputChange} />
@@ -70,7 +71,7 @@ export class Homepage extends Component {
             {this.renderOthers()}
           </center>
         </div>
-        <Footer />
+        <Footer fixed={true} />
       </>
     )
   }

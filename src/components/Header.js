@@ -4,8 +4,18 @@ import { Link } from 'react-router-dom';
 
 export class Header extends Component {
   state = {
-    tabs: ['All', 'Videos', 'Images', 'News', 'Maps', 'More'],
-    others: ['Settings', 'Tools'],
+    tabs: [
+      { title: 'All', icon: 'finder.png' },
+      { title: 'Videos', icon: 'videos.png' },
+      { title: 'Images', icon: 'images.png' },
+      { title: 'News', icon: 'news.png' },
+      { title: 'Maps', icon: 'map.png' },
+      { title: 'More', icon: 'more.png' }
+    ],
+    others: [
+      { title: 'Settings' },
+      { title: 'Tools' }
+    ],
     active: 'Videos'
   }
 
@@ -13,11 +23,12 @@ export class Header extends Component {
     const { active } = this.state;
     return (
       <div
-        className={active === tab ? "tab pointer active" : "tab pointer"}
-        onClick={() => this.activateTab(tab)}
+        key={tab.title}
+        className={active === tab.title ? "tab pointer active" : "tab pointer"}
+        onClick={() => this.activateTab(tab.title)}
       >
-        <img src={require('../assets/images/search.png')} alt="s" />
-        <span>{tab}</span>
+        {tab && tab.icon ? <img src={require(`../assets/images/${tab.icon}`)} alt='*' /> : ''}
+        <span>{tab.title}</span>
       </div>
     )
   }
@@ -27,30 +38,35 @@ export class Header extends Component {
   }
 
   render() {
-    const { q, top } = this.props;
+    const { q, top, altSearch } = this.props;
     const { others, tabs } = this.state;
     return (
       <>
-        <div className={top ? "header-container results" : "header-container"}>
-          <div className="search">
-            <div className="logo">
-              <img src={require('../assets/images/google.png')} alt="logo" />
+        <div className={
+          top ? "header-container right" : "header-container",
+          altSearch ? 'header-container results' : 'header-container right'
+        }>
+          {altSearch ?
+            <div className="search">
+              <div className="logo">
+                <img src={require('../assets/images/google.png')} alt="logo" />
+              </div>
+              <div className="search-bar results">
+                <div className="search-icon left">
+                  <img src={require('../assets/images/search.png')} className="left" alt="logo" />
+                </div>
+                <div className="search-input">
+                  <input type="text" name="search" id="search"
+                    className={q && q.length ? "results" : ""}
+                    autoFocus={!top}
+                    onChange={this.onInputChange} />
+                </div>
+                <div className="search-icon">
+                  <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
+                </div>
+              </div>
             </div>
-            <div className="search-bar results">
-              <div className="search-icon left">
-                <img src={require('../assets/images/search.png')} className="left" alt="logo" />
-              </div>
-              <div className="search-input">
-                <input type="text" name="search" id="search"
-                  className={q && q.length ? "results" : ""}
-                  autoFocus={!top}
-                  onChange={this.onInputChange} />
-              </div>
-              <div className="search-icon">
-                <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
-              </div>
-            </div>
-          </div>
+            : ''}
           <div className="menu-items">
             <div className="links">
               <Link to="/">Gmail</Link>
@@ -64,16 +80,18 @@ export class Header extends Component {
             </div>
           </div>
         </div>
-        <div className="header-tabs">
-          <div className="menus">
-            <div className="tabs">
-              {tabs.map(t => this.renderTabs(t))}
-            </div>
-            <div className="others">
-              {others.map(t => this.renderTabs(t))}
+        {altSearch ?
+          <div className="header-tabs">
+            <div className="menus">
+              <div className="tabs">
+                {tabs.map(t => this.renderTabs(t))}
+              </div>
+              <div className="others">
+                {others.map(t => this.renderTabs(t))}
+              </div>
             </div>
           </div>
-        </div>
+          : ''}
       </>
     )
   }

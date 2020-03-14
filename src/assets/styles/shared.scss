@@ -1,5 +1,5 @@
 body {
-    font-family: 'Nunito';
+    font-family: arial,sans-serif;
     color: #6C6B6B;
     background-color: rgb(252, 252, 253);
 }
@@ -47,8 +47,8 @@ input, button {
           span {color: rgb(22, 112, 230);}
         }
         img {
-          width: 10px;
-          height: 10px;
+          width: 11px;
+          height: 11px;
           margin-right: 0.25rem;
         }
       }
@@ -60,6 +60,9 @@ input, button {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  &.right {
+    justify-content: flex-end;
+  }
   &.results {
     padding: 1rem;
     .search {
@@ -121,7 +124,7 @@ input, button {
     .search-input {
       width: 100%;
       input {
-        height: 40px;
+        height: 38px;
       }
     }
   }
@@ -179,7 +182,6 @@ input, button {
     bottom: 1.6rem;
     transition: all 0.125s ease-in;
     .results {
-      // position: absolute;
       padding-top: 0.75rem;
       width: 100%;
       background-color: #ffffff;
@@ -211,15 +213,14 @@ input, button {
       }
     }
   }
-
   .other-actions {
     margin-bottom: 1.5rem;
     button {
-      color: #454545;
-      background-color: #f6f6f6;
+      color: #555;
+      background-color: #f4f4f4;
       border: none;
-      height: 38px;
-      font-size: 0.875rem;
+      height: 32px;
+      font-size: 0.8125rem;
       padding: 0 1.125rem;
       border-radius: 0.25rem;
       margin-right: 1rem;
@@ -238,8 +239,8 @@ input, button {
       margin-right: 0.35rem;
     }
     a {
-      color: rgb(31, 17, 184);
-      &:visited{
+      color: rgb(38, 25, 182);
+      &:visited {
         color: rgb(104, 6, 153);
       }
     }
@@ -265,7 +266,7 @@ input, button {
           top: 0;
           left: 0;
           cite {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: #3C4043;
             font-style: normal;
           }
@@ -277,7 +278,7 @@ input, button {
         }
         h3 {
           color: rgb(24, 10, 177);
-          font-size: 1.25rem;
+          font-size: 1.125rem;
           padding: 1.5rem 0 0.25rem;
           font-weight: 400;
           margin: 0;
@@ -286,7 +287,7 @@ input, button {
     }
     .description {
       color: #343434;
-      font-size: 0.935rem;
+      font-size: 0.8125rem;
     }
   }
   .related {
@@ -302,21 +303,24 @@ input, button {
       flex-wrap: wrap;
       .rel {
         display: block;
-        font-size: 0.935rem;
+        font-size: 0.875rem;
         color: #1A0DAB;
         font-weight: 600;
-        width: 45%;
+        width: 48%;
+        margin-bottom: 0.5rem;
       }
     }
   }
 }
 
 .footer-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
+  &.fixed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
   .footer {
     font-size: 0.875rem;
     padding: 0.5rem 1.5rem;

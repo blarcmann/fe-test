@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 export class Footer extends Component {
+
   render() {
+    const { fixed } = this.props;
     return (
       <>
-        <div className="footer-container">
+        <div className={fixed ? "footer-container fixed" : "footer-container"} >
           <div className="top footer">
             <span>Nigeria</span>
           </div>

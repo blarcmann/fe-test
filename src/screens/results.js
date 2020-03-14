@@ -24,7 +24,7 @@ export class Results extends Component {
     const { results, msg, related } = this.props;
     return (
       <>
-        <Header top="true" />
+        <Header top="true" altSearch={true} />
         <div className="results-container">
           <div className="response-time">{msg.responseMsg}</div>
           <div className="results">
@@ -39,7 +39,7 @@ export class Results extends Component {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer fixed={false} />
       </>
     )
   }
