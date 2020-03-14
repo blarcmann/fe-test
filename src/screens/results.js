@@ -8,7 +8,8 @@ import { fetchResults, getResponseMsg, fetchRelated } from '../actions';
 export class Results extends Component {
 
   state = {
-    pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    acSticky: false,
   }
 
   componentDidMount() {
@@ -24,12 +25,22 @@ export class Results extends Component {
     )
   }
 
+  handleScroll = () => {
+    if (window.pageYOffset > 50) {
+      this.setState({ acSticky: true });
+      console.log('scrolled');
+    } else {
+      this.setState({ acSticky: false })
+    }
+  }
+
   render() {
+    window.addEventListener("scroll", this.handleScroll);
     const { results, msg, related } = this.props;
-    const { pages } = this.state;
+    const { pages, acSticky } = this.state;
     return (
       <>
-        <Header top="true" altSearch={true} />
+        <Header top="true" altSearch={true} sticky={acSticky} />
         <div className="results-container">
           <div className="response-time">{msg.responseMsg}</div>
           <div className="results">

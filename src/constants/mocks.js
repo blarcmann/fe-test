@@ -36,7 +36,7 @@ const results = [
   },
   {
     id: '6',
-    url: 'medium.com › reactnative-react-createstacknavigator...',
+    url: 'medium.com › react native-react create...',
     title: '[ReactNative][react-navigation]Error: createStackNavigator ...',
     description: 'Jan 7, 2020 - For the StackNavigator you have to install react-navigation-stack using: npm i react-navigation-stack //or yarn add react-navigation-stack',
     type: 'article'
