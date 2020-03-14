@@ -129,7 +129,13 @@ input, button {
     }
   }
   .search-input {
-    width: 40%;
+    width: 60%;
+    @media(min-width: 1200px) {
+      width: 40%;
+    }
+    @media(max-width: 767px) {
+      width: 90%;
+    }
     input {
       background: #FFFFFF;
       border: 1px solid #e1e2e4;
@@ -167,8 +173,11 @@ input, button {
   margin-top: 9%;
   .main-logo {
     img {
-      width: 244px;
+      width: 180px;
       height: auto;
+      @media(min-width: 1200px) {
+        width: 244px;
+      }
     }
   }
   .divider {
@@ -177,7 +186,13 @@ input, button {
     border-bottom: 1px solid #f4f4f4;
   }
   .search-results {
-    width: 40%;
+    width: 60%;
+    @media(min-width: 1200px) {
+      width: 40%;
+    }
+    @media(max-width: 767px) {
+      width: 90%;
+    }
     position: relative;
     bottom: 1.6rem;
     transition: all 0.125s ease-in;
@@ -208,6 +223,9 @@ input, button {
           span {
             font-weight: 600;
             color: #333;
+            @media(max-width: 900px) {
+              font-size: 0.875rem;
+            }
           }
         }
       }
@@ -351,13 +369,24 @@ input, button {
     color: #555;
     &.bottom {
       border-top: 1px solid #e2e2e2;
-      display: flex;
-      justify-content: space-between;
+      @media(min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+      }
       .footer-menu {
+        @media(max-width: 767px) {
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
         a {
           font-size: 0.8125rem;
           color: #555;
           margin-right: 0.75rem;
+          @media(max-width: 767px) {
+            display: block;
+            margin-top: 0.75rem;
+          }
         }
       }
     }

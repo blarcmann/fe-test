@@ -56,7 +56,7 @@ export class Results extends Component {
               <span className="red">e</span>
             </div>
             <div className="pagination">
-              {pages.map(p => <a href="https://google.com">{p}</a>)}
+              {pages.map(p => <a href="https://google.com" key={p}>{p}</a>)}
               <a className="next" href="https://google.com">Next</a>
             </div>
           </div>
