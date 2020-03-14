@@ -43,6 +43,7 @@ export class Header extends Component {
     return (
       <>
         <div className={
+          // eslint-disable-next-line
           top ? "header-container right" : "header-container",
           altSearch ? 'header-container results' : 'header-container right'
         }>
@@ -77,6 +78,21 @@ export class Header extends Component {
             </div>
             <div className="icon pointer">
               <img src={require('../assets/images/user.png')} className="user" alt="user" />
+            </div>
+          </div>
+        </div>
+        <div className="search-sm">
+          <div className="search-bar">
+            <div className="search-icon left">
+              <img src={require('../assets/images/search.png')} className="left" alt="logo" />
+            </div>
+            <div className="search-input">
+              <input type="text" name="search" id="search-sm"
+                autoFocus={!top}
+                onChange={this.onInputChange} />
+            </div>
+            <div className="search-icon">
+              <img src={require('../assets/images/microphone.png')} className="right" alt="logo" />
             </div>
           </div>
         </div>

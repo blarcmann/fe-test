@@ -15,7 +15,7 @@ const results = [
   },
   {
     id: '3',
-    url: 'www.npmjs.com › package › @react-navigation › native-stack',
+    url: 'www.npmjs.com › @react-navigation › native-stack',
     title: '@react-navigation/native-stack - npm',
     description: 'Feb 14, 2020 - This package has moved. Please install the latest version of react- native - screens and change your imports from @react-navigation / native - stack ...',
     type: 'article'
@@ -36,7 +36,7 @@ const results = [
   },
   {
     id: '6',
-    url: 'medium.com › reactnative-react-navigation-error-createstacknavigator...',
+    url: 'medium.com › reactnative-react-createstacknavigator...',
     title: '[ReactNative][react-navigation]Error: createStackNavigator ...',
     description: 'Jan 7, 2020 - For the StackNavigator you have to install react-navigation-stack using: npm i react-navigation-stack //or yarn add react-navigation-stack',
     type: 'article'

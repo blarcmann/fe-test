@@ -10,6 +10,7 @@ export class Results extends Component {
   state = {
     pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   }
+
   componentDidMount() {
     const { fetchResults, getResponseMsg, fetchRelated } = this.props;
     getResponseMsg();
